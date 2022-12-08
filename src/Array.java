@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Array class with methods that operate on arrays.
@@ -13,12 +14,12 @@ public class Array {
         }
     }
 
-   public List<Object> merge(List<Object> array1, List<Object> array2) {
+   public List<Object> merge(List<Integer> array1, List<Integer> array2) {
        List<Object> array3 = new ArrayList<>();
        int i = 0;
        int j = 0;
        while (i < array1.size() && j < array2.size()) {
-           if ((int)array1.get(i) < (int)array2.get(j)) {
+           if (array1.get(i) < array2.get(j)) {
                array3.add(array1.get(i));
                i++;
            } else {
@@ -44,6 +45,38 @@ public class Array {
             }
         }
         return min;
+    }
+
+    public static void removeDuplicates(List<Integer> array) {
+        int i = 0;
+        while (i < array.size() - 1) {
+            int j = i + 1;
+            while (j < array.size()) {
+                if (Objects.equals(array.get(i), array.get(j))) {
+                    array.remove(j);
+                } else {
+                    j++;
+                }
+            }
+            i++;
+        }
+    }
+    public static int findTheMode(List<Integer> array) {
+        int mode = array.get(0);
+        int modeCount = 0;
+        for (int i = 0; i < array.size(); i++) {
+            int count = 0;
+            for (Integer integer : array) {
+                if (Objects.equals(array.get(i), integer)) {
+                    count++;
+                }
+            }
+            if (count > modeCount) {
+                mode = array.get(i);
+                modeCount = count;
+            }
+        }
+        return mode;
     }
 
 }
