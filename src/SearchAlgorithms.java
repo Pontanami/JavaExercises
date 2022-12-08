@@ -71,14 +71,34 @@ public class SearchAlgorithms {
         }
         return high;
     }
-
-    public int minimum(List<Integer> array) {
-        int min = array.get(0);
-        for (int i = 1; i < array.size(); i++) {
-            if (array.get(i) < min) {
-                min = array.get(i);
+public static void findAnagrams(List<String> words) {
+        for (int i = 0; i < words.size(); i++) {
+            String word = words.get(i);
+            for (int j = i + 1; j < words.size(); j++) {
+                String otherWord = words.get(j);
+                if (isAnagram(word, otherWord)) {
+                    System.out.println(word + " is an anagram of " + otherWord);
+                }
             }
         }
-        return min;
+    }
+
+    private static boolean isAnagram(String word, String otherWord) {
+        if (word.length() != otherWord.length()) {
+            return false;
+        }
+        int[] letters = new int[26];
+        for (int i = 0; i < word.length(); i++) {
+            letters[word.charAt(i) - 'a']++;
+        }
+        for (int i = 0; i < otherWord.length(); i++) {
+            letters[otherWord.charAt(i) - 'a']--;
+        }
+        for (int i = 0; i < 26; i++) {
+            if (letters[i] != 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
