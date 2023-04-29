@@ -2,7 +2,7 @@ import java.util.List;
 
 public class SortingAlgorithms {
 
-    public static void inserionSort(List<Integer> array) {
+    public static void insertionSort(List<Integer> array) {
         int i = 0;
         while (i < array.size() - 1) {
             int j = i;
@@ -12,18 +12,6 @@ public class SortingAlgorithms {
             }
             i++;
         }
-    }
-    private static void partition(List<Integer> array, int low, int high, int pivotIndex) {
-        int pivotValue = array.get(pivotIndex);
-        Util.swap(array, pivotIndex, high);
-        int storeIndex = low;
-        for (int i = low; i < high; i++) {
-            if (array.get(i) < pivotValue) {
-                Util.swap(array, storeIndex, i);
-                storeIndex++;
-            }
-        }
-        Util.swap(array, high, storeIndex);
     }
     public static void selectionSort(List<Integer> array) {
         int i = 0;

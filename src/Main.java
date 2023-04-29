@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         List<Integer> array = new ArrayList<>();
-        for(int i = 0; i < 100; i++) {
-            array.add((int)(Math.random() * 100));
+        for (int i = 0; i < 100; i++) {
+            array.add((int) (Math.random() * 100));
         }
         double time1 = System.currentTimeMillis();
         List<String> array2 = new ArrayList<>();
@@ -27,6 +28,6 @@ public class Main {
 
         SearchAlgorithms.findAnagrams(array2);
         double time2 = System.currentTimeMillis();
-        System.out.println("Time: " + (time2 - time1)/1000 + " seconds");
+        System.out.println("Time: " + (time2 - time1) / 1000 + " seconds");
     }
 }

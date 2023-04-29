@@ -14,8 +14,8 @@ public class Array {
         }
     }
 
-   public List<Object> merge(List<Integer> array1, List<Integer> array2) {
-       List<Object> array3 = new ArrayList<>();
+   public List<Integer> merge(List<Integer> array1, List<Integer> array2) {
+       List<Integer> array3 = new ArrayList<>();
        int i = 0;
        int j = 0;
        while (i < array1.size() && j < array2.size()) {
@@ -37,7 +37,7 @@ public class Array {
        }
        return array3;
    }
-    public int minimum(List<Integer> array) {
+    public static int minimum(List<Integer> array) {
         int min = array.get(0);
         for (int i = 1; i < array.size(); i++) {
             if (array.get(i) < min) {
@@ -45,6 +45,15 @@ public class Array {
             }
         }
         return min;
+    }
+    public static int maximum(List<Integer> array) {
+        int max = array.get(0);
+        for (int i = 1; i < array.size(); i++) {
+            if (array.get(i) > max) {
+                max = array.get(i);
+            }
+        }
+        return max;
     }
 
     public static void removeDuplicates(List<Integer> array) {
@@ -78,5 +87,4 @@ public class Array {
         }
         return mode;
     }
-
 }
